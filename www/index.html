@@ -28,7 +28,50 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
+	<script>
+		import login from './auth';
+		export class Login extends Component {
+
+constructor(props){
+ super(props)
+ this.onSubmit = this.onSubmit.bind(this)
+ this.handleInputChange = this.handleInputChange.bind(this)
+ this.state = {
+     username: null,
+     password: null,
+
+ }
+ }
+
+ onSubmit(event) {
+  event.preventDefault()
+  let data = this.state
+  console.log(data)
+  login(data)
+
+
+
+  }
+
+  handleInputChange(event){
+   event.preventDefault()
+   console.log(event.target.name, event.target.value)
+   let key = event.target.name
+   let value = event.target.value
+   this.setState({
+     [key]: value
+  })
+  }
+
+  componentDidMount(){
+   this.setState({
+    username: null,
+    password: null,
+
+   })
+
+   }
+	</script>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -41,8 +84,8 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="email">
-						<span class="focus-input100" data-placeholder="Email"></span>
+						<input class="input100" type="text" name="username">
+						<span class="focus-input100" data-placeholder="Username"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
@@ -52,31 +95,12 @@
 						<input class="input100" type="password" name="pass">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
-
-					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn" onclick="function()" >
-								Login
-							</button>
-						</div>
-					</div>
-
-					<div class="text-center p-t-115">
-						<span class="txt1">
-							Don’t have an account?
-						</span>
-
-						<a class="txt2" href="#">
-							Sign Up
-						</a>
-					</div>
 				</form>
+				<button class="login100-form-btn" onclick="onSubmit()" ><a  href="caregiverHomepage.html">Login</button>
 			</div>
 		</div>
 	</div>
 	
-
 	<div id="dropDownSelect1"></div>
 	
 <!--===============================================================================================-->

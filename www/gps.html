@@ -1,44 +1,51 @@
-<html>
-  <head>
-    <title>Device Properties Example</title>
+<!DOCTYPE html>
+<html lang="en">
 
-    <script type="text/javascript" charset="utf-8" src="cordova-1.5.0.js"></script>
-    <script type="text/javascript" charset="utf-8">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Mapping</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-    // Wait for PhoneGap to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
+        #map {
+            border: 2px solid #333;
+            width: 80vw;
+            height: 80vh;
+        }
+    </style>
+</head>
 
-    // PhoneGap is ready
-    //
-    function onDeviceReady() {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
-    }
+<body>
+    <div id="map"></div>
+    <script>
+        let map;
+          /// my-map-controller.js
+ 
+        document.addEventListener("DOMContentLoaded", () => {
+            let s = document.createElement("script");
+            document.head.appendChild(s);
+            s.addEventListener("load", () => {
+                //script has loaded
+                console.log("script has loaded");
+                map = new google.maps.Map(document.getElementById("map"), {
+                    center: {
+                        lat: 45.3496711,
+                        lng: -75.7569551
+                    },
+                    zoom: 16,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+            });
+            s.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCrVSO6AoIlqu9SxBLS6QLn3UFw7TvIdWA&callback=initMap`;
+        });
+      </script>
+</body>
 
-    // onSuccess Geolocation
-    //
-    function onSuccess(position) {
-        var element = document.getElementById('geolocation');
-        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-                            'Longitude: '          + position.coords.longitude             + '<br />' +
-                            'Altitude: '           + position.coords.altitude              + '<br />' +
-                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-                            'Heading: '            + position.coords.heading               + '<br />' +
-                            'Speed: '              + position.coords.speed                 + '<br />' +
-                            'Timestamp: '          + new Date(position.timestamp)          + '<br />';
-    }
-
-    // onError Callback receives a [PositionError](PositionError/positionError.html) object
-    //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
-
-    </script>
-  </head>
-  <body>
-    <p id="geolocation">Finding geolocation...</p>
-  </body>
 </html>

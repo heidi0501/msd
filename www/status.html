@@ -1,0 +1,212 @@
+<html>
+    <head>
+        <style>* {
+            box-sizing: border-box;
+          }
+          
+          :root {
+            --background: #E5FFB3;
+            --background-accent: #DBF8A3;
+            --background-accent-2: #BDE66E;
+            --light: #92DE34;
+            --dark: #69BC22;
+            --text: #025600;
+          }
+          
+          body {
+            background-color: var(--background);
+            background-image: linear-gradient(
+              var(--background-accent-2) 50%,
+              var(--background-accent) 50%
+            ), linear-gradient(
+              var(--background-accent) 50%,
+              var(--background-accent-2) 50%
+            );
+            background-repeat: no-repeat;
+            background-size: 100% 30px;
+            background-position: top left, bottom left;
+            min-height: 98vh;
+          }
+          
+          div {
+            display: block;
+            width: 400px;
+            margin: 0 auto 0 auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 30vh;
+          }
+          
+          button {
+            display: block;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            background-color: var(--light);
+            width: 400px;
+            height: 70px;
+            border-radius: 30px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text);
+            background-size: 100% 100%;
+            box-shadow: 0 0 0 7px var(--light) inset;
+            margin-bottom: 15px;
+          }
+          
+          button:hover {
+            background-image: linear-gradient(
+              145deg,
+              transparent 10%,
+              var(--dark) 10% 20%,
+              transparent 20% 30%,
+              var(--dark) 30% 40%,
+              transparent 40% 50%,
+              var(--dark) 50% 60%,
+              transparent 60% 70%,
+              var(--dark) 70% 80%,
+              transparent 80% 90%,
+              var(--dark) 90% 100%
+            );
+            animation: background 3s linear infinite;
+          }
+          
+          @keyframes background {
+            0% {
+              background-position: 0 0;
+            }
+            100% {
+              background-position: 400px 0;
+            }
+          }
+
+          ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;    
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+          </style>
+          
+      </head>
+    <body>
+      <div>
+        <table style="width:100%">
+            <tr>
+              <th>Blood pressure</th>
+              <th>Heart rate</th>
+              <th>Front door</th>
+            </tr>
+            <tr>
+              <td>Normal</td>
+              <td>Normal</td>
+              <td>Locked</td>
+            </tr>
+          </table>
+          <br>
+          Air-conditioner<br>
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+          </label>
+          <br>
+          Televsion<br>
+          <label class="switch">
+            <input type="checkbox" >
+            <span class="slider round"></span>
+          </label>
+          <br>
+          Washing machine<br>
+          <label class="switch">
+            <input type="checkbox" >
+            <span class="slider round"></span>
+          </label>
+      </div>
+      
+    </body>
+</html>
